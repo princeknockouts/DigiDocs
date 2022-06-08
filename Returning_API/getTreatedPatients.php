@@ -10,7 +10,7 @@
 		"status" => 200,
 		"success" => true,
 		"patients" => [],
-		"message" => "Patients list fetched successfully!!",
+		"message" => "Treated patients list fetched successfully!!",
 	);
 
 	$err = array(
@@ -19,7 +19,7 @@
 		"message" => "",
 	);
 
-	$query = "SELECT * FROM patient WHERE is_delete=0";
+	$query = "SELECT * FROM patient WHERE is_delete=0 AND treatment_complete=1";
 	$result = $con-> query($query);
 	while($row = $result-> fetch_array()) {
 		$tempArray = array(
