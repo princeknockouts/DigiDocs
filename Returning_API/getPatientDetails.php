@@ -45,7 +45,7 @@
 				$spirometry_details-> fef = $row1[5];
 				$spirometry_details-> spiro_gold_grade = $row1[6];
 				$spirometry_details-> type = $row1[7];
-				$patients_data-> pre_spiro = $spirometry_details;
+				$patients_data['pre_spiro'] = $spirometry_details;
 			}else {
 				$spirometry_details-> fev1 = $row1[2];
 				$spirometry_details-> fev_score = $row1[3];
@@ -53,7 +53,7 @@
 				$spirometry_details-> fef = $row1[5];
 				$spirometry_details-> spiro_gold_grade = $row1[6];
 				$spirometry_details-> type = $row1[7];
-				$patients_data-> post_spiro = $spirometry_details;
+				$patients_data['post_spiro'] = $spirometry_details;
 			}
 		}
 
@@ -74,7 +74,7 @@
 			$severity-> other_investigation = $row2[11];
 			$severity-> eos_count = $row2[12];
 			$severity-> initial_treatment = $row2[13];
-			$patients_data-> severity = $severity;
+			$patients_data['severity'] = $severity;
 		}
 
 		$query3 = "SELECT * FROM cat_ans WHERE patient_id=$row[0]";
@@ -88,7 +88,7 @@
 
 			array_push($ans_list, $ans);
 		}
-		$patients_data-> cat_ans = $ans_list;
+		$patients_data['cat_ans'] = $ans_list;
 	}
 
 	$succ-> patient = $patients_data;
