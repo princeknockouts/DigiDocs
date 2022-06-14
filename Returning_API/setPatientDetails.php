@@ -13,15 +13,15 @@
 	$email = $data-> email;
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"message" => "Patient added successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Some error occured please try again after sometime!!",
+		"http code"=> 500
 	);
 
 	$current_time = date("Y-m-d H:i:s");

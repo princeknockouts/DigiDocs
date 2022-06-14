@@ -8,15 +8,15 @@
 	$question = $data-> question;
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"message" => "Question added successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Some problem occurred, please try again after some time!!!",
+		"http code"=> 500
 	);
 
 	$query = "INSERT INTO cat_quest (question) VALUES ($question)";

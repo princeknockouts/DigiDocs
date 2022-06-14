@@ -35,11 +35,15 @@
 		}
 	}
 
-	$username = $data-> username;
-	$password = $data-> password;
+	$username = "";
+	$password = "";
+
+	if (isset($data-> username) && isset($data-> password)) {
+		$username = $data-> username;
+		$password = $data-> password;
+	}
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"user_id" => "",
 		"user_token" => "",
@@ -47,11 +51,12 @@
 		"contact" => "",
 		"email" => "",
 		"message" => "User Logged in successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
+		"http code"=> 512,
 		"message" => "",
 	);
 

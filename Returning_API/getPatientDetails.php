@@ -5,16 +5,16 @@
 	date_default_timezone_set("Asia/Calcutta");
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"patient" => [],
 		"message" => "User Logged in successfully",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Some error occured, please try agian after some time!!",
+		"http code"=> 500
 	);
 
 	$data = file_get_contents("php://input");

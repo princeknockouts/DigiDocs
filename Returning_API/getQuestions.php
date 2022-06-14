@@ -7,16 +7,16 @@
 	$questions_array = array();
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"questions" => [],
 		"message" => "Questions list fetched successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "",
+		"http code"=> 500
 	);
 
 	$query = "SELECT * FROM cat_quests WHERE is_delete=0";

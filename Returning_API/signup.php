@@ -42,7 +42,6 @@
 	}
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"user_id" => "",
 		"user_token" => "",
@@ -50,12 +49,13 @@
 		"contact" => "",
 		"email" => "",
 		"message" => "User Signed Up successfully",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Some error occured please try again",
+		"http code"=> 500
 	);
 
 	$token = generateRandomString(16);
@@ -66,7 +66,7 @@
 	$row = $result-> fetch_row();
 
 	if ($row[0] > 0) {
-		$err["status"] = 502;
+		$err["http code"] = 502;
 		$err["message"] = "Email id already exists, please try with some other email!";
 		echo json_encode($err);
 	} else {

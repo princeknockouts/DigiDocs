@@ -5,15 +5,15 @@
 	date_default_timezone_set("Asia/Kolkata");
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"message" => "Correct OTP, please change password",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Incorrect OTP, please try again!!",
+		"http code"=> 500
 	);
 
 	$data = json_decode(file_get_contents("php://input"));

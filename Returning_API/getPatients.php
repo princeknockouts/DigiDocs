@@ -7,16 +7,16 @@
 	$patients_array = array();
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"patients" => [],
 		"message" => "Patients list fetched successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "",
+		"http code"=> 500
 	);
 
 	$query = "SELECT * FROM patient WHERE is_delete=0";

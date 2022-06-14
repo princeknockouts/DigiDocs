@@ -24,15 +24,15 @@
 	$otp = random_int(100000, 999999);
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"user_id" => "",
 		"message" => "Otp sent to your email id successfully!!",
+		"http code"=> 200
 	);
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Invalid email id, please check email id and try again!!",
+		"http code"=> 500
 	);
 
 	$query = "SELECT COUNT(id), id FROM user_details WHERE email_id='$email_id' AND is_delete=0";
@@ -47,7 +47,7 @@
 			$succ['user_id'] = $row[1];
 			echo json_encode($succ);
 		} else {
-			$err['status'] = 503;
+			$err['http code'] = 503;
 			$err['message'] = "Some error occured, please try again after some time!!";
 			echo json_encode($err);
 		}

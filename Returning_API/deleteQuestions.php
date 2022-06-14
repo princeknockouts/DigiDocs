@@ -5,15 +5,15 @@
 	date_default_timezone_set("Asia/Calcutta");
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"message" => "Question deleted successfully!!",
+		"http code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "Some error occured, please try again!!",
+		"http code"=> 500
 	);
 
 	$data = json_decode(file_get_contents("php://input"));

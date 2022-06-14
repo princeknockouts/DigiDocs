@@ -9,7 +9,6 @@
 	$user_token = $data-> user_token;
 
 	$succ = array (
-		"status" => 200,
 		"success" => true,
 		"user_id" => "",
 		"user_token" => "",
@@ -18,12 +17,13 @@
 		"total_patients" => "",
 		"diagnosed_patients" => "",
 		"message" => "User Verified in successfully!!",
+		"http_code"=> 200
 	);
 
 	$err = array(
-		"status" => 500,
 		"success" => false,
 		"message" => "",
+		"http_code"=> 500
 	);
 
 	$current_date = date("Y-m-d");
@@ -56,8 +56,9 @@
 			}
 			echo json_encode($succ);
 		} else {
-			$err["status"] = 501;
+			$err["http_code"] = 501;
 			$err["message"] = "You have logged in from some other device, please login again in this device!!";
+			header('HTTP/1.1 501 Token Invalid error');
 			echo json_encode($err);
 		}
 	}
