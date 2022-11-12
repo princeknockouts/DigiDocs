@@ -21,7 +21,12 @@ class Login extends Component {
 				/>
 				<TextInput style={textInputStyle} placeholder="E-Mail" />
 				<TextInput style={textInputStyle} placeholder="Password" />
-				<TouchableOpacity style={loginButtonStyle}>
+				<TouchableOpacity
+					style={loginButtonStyle}
+					onPress={() => {
+						this.props.navigation.navigate("Home");
+					}}
+				>
 					<Text>Login</Text>
 				</TouchableOpacity>
 			</ScrollView>

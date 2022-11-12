@@ -20,13 +20,17 @@ const HomeScreens = () => {
 function MainAppRoutes() {
 	return (
 		<NavigationContainer>
-			<RootStack.Navigator>
+			<RootStack.Navigator screenOptions={{ headerShown: false }}>
 				<RootStack.Screen
 					name="Splash"
 					component={Splash}
 					options={{ headerShown: false }}
 				/>
-				<RootStack.Screen name="Login" component={Login} />
+				<RootStack.Screen
+					name="Login"
+					component={Login}
+					options={{ headerShown: false }}
+				/>
 				<RootStack.Screen name="Register" component={Register} />
 				<RootStack.Screen name="Home" component={HomeScreens} />
 			</RootStack.Navigator>
