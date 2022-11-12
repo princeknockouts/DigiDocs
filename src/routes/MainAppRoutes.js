@@ -5,6 +5,10 @@ import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
 import ForgotPassword from "../components/ForgotPassword";
 import Splash from "../components/Splash";
+import Profile from "../components/UserScreens/Profile";
+import ViewApplications from "../components/UserScreens/ViewApplications";
+import ViewDocuments from "../components/UserScreens/ViewDocuments";
+import ApplyForDocuments from "../components/UserScreens/ApplyForDocuments";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -13,6 +17,10 @@ const HomeScreens = () => {
 	return (
 		<HomeStack.Navigator>
 			<HomeStack.Screen name="Dashboard" component={Dashboard} />
+			<HomeStack.Screen name="Profile" component={Profile} />
+			<HomeStack.Screen name="ViewApplications" component={ViewApplications} />
+			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
+			<HomeStack.Screen name="ApplyForDocuments" component={ApplyForDocuments} />
 		</HomeStack.Navigator>
 	);
 };
@@ -28,7 +36,7 @@ function MainAppRoutes() {
 				/>
 				<RootStack.Screen
 					name="Login"
-					component={Login}
+					component={HomeScreens}
 					options={{ headerShown: false }}
 				/>
 				<RootStack.Screen

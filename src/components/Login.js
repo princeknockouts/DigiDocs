@@ -13,6 +13,13 @@ import {
 	loginUsernameValueChanged,
 	loginPasswordValueChanged,
 } from '../actions';
+import {
+	loginBackgroundColor,
+	loginButtonBorderColor,
+	loginButtonTextColor,
+	loginTextInputBorderColor,
+	loginHeadingTextColor,
+} from '../extras/ConstantValues';
 
 class Login extends Component {
 	render() {
@@ -43,7 +50,7 @@ class Login extends Component {
 					style={textInputStyle}
 					placeholder="Password"
 					onChangeText={(value) => {
-						loginPasswordValueChanged(value)
+						loginPasswordValueChanged(value);
 					}}
 					value={this.props.loginPassword}
 				/>
@@ -76,11 +83,11 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	rootStyle: {
-		backgroundColor: "white",
+		backgroundColor: loginBackgroundColor,
 		alignContent: "center",
 	},
 	loginButtonStyle: {
-		height: 35,
+		height: 40,
 		width: 100,
 		borderWidth: 1,
 		alignContent: "center",
@@ -88,17 +95,17 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		marginTop: 30,
 		alignSelf: "center",
-		borderColor: "gray",
-		borderRadius: 6,
+		borderColor: loginButtonBorderColor,
+		borderRadius: 10,
 	},
 	textInputStyle: {
 		width: "90%",
-		height: 42,
+		height: 45,
 		borderWidth: 1,
-		borderColor: "lightgray",
+		borderColor: loginTextInputBorderColor,
 		alignSelf: "center",
 		marginTop: 10,
-		borderRadius: 6,
+		borderRadius: 10,
 		paddingLeft: 10,
 	},
 	forgotButtonStyle: {
@@ -110,7 +117,11 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		fontSize: 25,
 		marginBottom: 10,
+		color: loginHeadingTextColor,
 	},
+	loginButtonTextStyle: {
+		color: loginButtonTextColor,
+	}
 });
 
 const mapStateToProps = state => {

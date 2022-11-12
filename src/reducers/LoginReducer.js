@@ -1,11 +1,14 @@
 import {
 	LOGIN_USERNAME_VALUE_CHANGED,
 	LOGIN_PASSWORD_VALUE_CHANGED,
+	FORGOT_PASSWORD_USERNAME_VALUE_CHANGED,
 } from '../actions/ActionTypes';
 
 var INITIAL_STATE = {
 	loginUsername: "",
 	loginPassword: "",
+
+	forgotPasswordUsername: "",
 }
 
 export default (state=INITIAL_STATE, action) => {
@@ -14,6 +17,8 @@ export default (state=INITIAL_STATE, action) => {
 			return {...state, loginUsername: action.payload};
 		case LOGIN_PASSWORD_VALUE_CHANGED:
 			return {...state, loginPassword: action.payload};
+		case FORGOT_PASSWORD_USERNAME_VALUE_CHANGED:
+			return{...state, forgotPasswordUsername: action.payload};
 		default:
 			return state;
 	}
