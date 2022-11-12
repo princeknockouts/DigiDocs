@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
-import Register from "../components/Register";
+import ForgotPassword from "../components/ForgotPassword";
 import Splash from "../components/Splash";
 
 const RootStack = createNativeStackNavigator();
@@ -31,7 +31,10 @@ function MainAppRoutes() {
 					component={Login}
 					options={{ headerShown: false }}
 				/>
-				<RootStack.Screen name="Register" component={Register} />
+				<RootStack.Screen
+					name="ForgotPassword"
+					component={ForgotPassword}
+				/>
 				<RootStack.Screen name="Home" component={HomeScreens} />
 			</RootStack.Navigator>
 		</NavigationContainer>

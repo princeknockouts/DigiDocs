@@ -11,14 +11,21 @@ import {
 
 class Login extends Component {
 	render() {
-		const { imageStyle, rootStyle, loginButtonStyle, textInputStyle } =
-			styles;
+		const {
+			imageStyle,
+			rootStyle,
+			loginButtonStyle,
+			textInputStyle,
+			forgotButtonStyle,
+			loginTextStyle,
+		} = styles;
 		return (
 			<ScrollView style={rootStyle}>
 				<Image
 					style={imageStyle}
-					source={require("../assets/icons/login.gif")}
+					source={require("../assets/icons/login1.gif")}
 				/>
+				<Text style={loginTextStyle}>LOGIN</Text>
 				<TextInput style={textInputStyle} placeholder="E-Mail" />
 				<TextInput style={textInputStyle} placeholder="Password" />
 				<TouchableOpacity
@@ -29,6 +36,9 @@ class Login extends Component {
 				>
 					<Text>Login</Text>
 				</TouchableOpacity>
+				<TouchableOpacity style={forgotButtonStyle}>
+					<Text>Forgot Password?</Text>
+				</TouchableOpacity>
 			</ScrollView>
 		);
 	}
@@ -36,8 +46,8 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
 	imageStyle: {
-		width: 150,
-		height: 150,
+		width: 350,
+		height: 350,
 		alignSelf: "center",
 		margin: 20,
 	},
@@ -46,17 +56,34 @@ const styles = StyleSheet.create({
 		alignContent: "center",
 	},
 	loginButtonStyle: {
-		height: 20,
-		width: 40,
+		height: 35,
+		width: 63,
 		borderWidth: 1,
+		alignContent: "center",
+		alignItems: "center",
+		justifyContent: "center",
+		margin: 15,
+		alignSelf: "center",
+		borderColor: "gray",
+		borderRadius: 6,
 	},
 	textInputStyle: {
-		width: "90%",
-		height: 39,
+		width: "93%",
+		height: 42,
 		borderWidth: 1,
 		borderColor: "lightgray",
 		alignSelf: "center",
 		marginTop: 10,
+		borderRadius: 6,
+	},
+	forgotButtonStyle: {
+		alignSelf: "center",
+	},
+	loginTextStyle: {
+		letterSpacing: 3,
+		alignSelf: "center",
+		fontSize: 25,
+		marginBottom: 10,
 	},
 });
 
