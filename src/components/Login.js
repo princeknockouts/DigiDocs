@@ -8,6 +8,11 @@ import {
 	ScrollView,
 	StyleSheet,
 } from "react-native";
+import { connect } from 'react-redux';
+import {
+	loginUsernameValueChanged,
+	loginPasswordValueChanged,
+} from '../actions';
 
 class Login extends Component {
 	render() {
@@ -26,8 +31,22 @@ class Login extends Component {
 					source={require("../assets/icons/login1.gif")}
 				/>
 				<Text style={loginTextStyle}>LOGIN</Text>
-				<TextInput style={textInputStyle} placeholder="E-Mail" />
-				<TextInput style={textInputStyle} placeholder="Password" />
+				<TextInput 
+					style={textInputStyle} 
+					placeholder="E-Mail" 
+					onChangeText={(value) => {
+						loginUsernameValueChanged(value);
+					}}
+					value={this.props.loginUsername}
+				/>
+				<TextInput
+					style={textInputStyle}
+					placeholder="Password"
+					onChangeText={(value) => {
+						loginPasswordValueChanged(value)
+					}}
+					value={this.props.loginPassword}
+				/>
 				<TouchableOpacity
 					style={loginButtonStyle}
 					onPress={() => {
@@ -36,7 +55,12 @@ class Login extends Component {
 				>
 					<Text>Login</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={forgotButtonStyle}>
+				<TouchableOpacity
+					style={forgotButtonStyle}
+					onPress={()=> {
+						this.props.navigation.navigate('ForgotPassword')
+					}}
+				>
 					<Text>Forgot Password?</Text>
 				</TouchableOpacity>
 			</ScrollView>
@@ -49,7 +73,7 @@ const styles = StyleSheet.create({
 		width: 350,
 		height: 350,
 		alignSelf: "center",
-		margin: 20,
+		marginBottom: 20,
 	},
 	rootStyle: {
 		backgroundColor: "white",
@@ -57,26 +81,28 @@ const styles = StyleSheet.create({
 	},
 	loginButtonStyle: {
 		height: 35,
-		width: 63,
+		width: 100,
 		borderWidth: 1,
 		alignContent: "center",
 		alignItems: "center",
 		justifyContent: "center",
-		margin: 15,
+		marginTop: 30,
 		alignSelf: "center",
 		borderColor: "gray",
 		borderRadius: 6,
 	},
 	textInputStyle: {
-		width: "93%",
+		width: "90%",
 		height: 42,
 		borderWidth: 1,
 		borderColor: "lightgray",
 		alignSelf: "center",
 		marginTop: 10,
 		borderRadius: 6,
+		paddingLeft: 10,
 	},
 	forgotButtonStyle: {
+		marginTop: 15,
 		alignSelf: "center",
 	},
 	loginTextStyle: {
@@ -87,4 +113,14 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Login;
+const mapStateToProps = state => {
+	return {
+		loginUsername: state.login.loginUsername,
+		loginPassword: state.login.loginPassword,
+	}
+}
+
+export default connect(mapStateToProps, {
+	loginUsernameValueChanged,
+	loginPasswordValueChanged,
+})(Login);
