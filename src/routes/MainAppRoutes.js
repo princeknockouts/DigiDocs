@@ -39,10 +39,10 @@ const DocumentScreens = () => {
 
 const ApplicationScreens = () => {
 	return (
-		<ApplicationStack.Navigator screenOptions={{ headerShown: false }}>
+		<ApplicationStack.Navigator screenOptions={{ headerShown: false, headerShadowVisible: 'false' }}>
 			<ApplicationStack.Screen
-				name="ApplyForDocuments"
-				component={ApplyForDocuments}
+				name="ViewApplications"
+				component={ViewApplications}
 			/>
 		</ApplicationStack.Navigator>
 	);
@@ -51,11 +51,12 @@ const ApplicationScreens = () => {
 const TabNav = () => {
 	return (
 		<Tab.Navigator screenOptions={{
-			headerTitleAlign: 'center'
+			headerTitleAlign: 'center',
+			headerShadowVisible: false,
 		}}>
 			<Tab.Screen name="Profile" component={ProfileScreens} options={{headerTitle: 'User Profile'}} />
-			<Tab.Screen name="Document" component={DocumentScreens} />
-			<Tab.Screen name="Application" component={ApplicationScreens} />
+			<Tab.Screen name="Documents" component={DocumentScreens} />
+			<Tab.Screen name="Applicationa" component={ApplicationScreens} />
 		</Tab.Navigator>
 	);
 };
