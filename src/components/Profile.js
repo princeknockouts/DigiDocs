@@ -21,7 +21,7 @@ class Profile extends Component {
         return (
             <ScrollView style={scrollViewStyle}>
                 <View style={profileImageViewStyle}>
-                    <Image style={profileImageStyle} />
+                    <Image style={profileImageStyle} resizeMode="contain" />
                 </View>
                 <TouchableOpacity
                     style={editButtonStyle}
@@ -51,13 +51,13 @@ class Profile extends Component {
                         </View>
                     </View>
                     <View style={infoViewStyle}>
-                        <Text style={textStyle}>Name :</Text>
+                        <Text style={textStyle}>Contact :</Text>
                         <View style={viewDetailStyle}>
                             <Text style={detailTextStyle}></Text>
                         </View>
                     </View>
                     <View style={infoViewStyle}>
-                        <Text style={textStyle}>Name :</Text>
+                        <Text style={textStyle}>Email ID :</Text>
                         <View style={viewDetailStyle}>
                             <Text style={detailTextStyle}></Text>
                         </View>

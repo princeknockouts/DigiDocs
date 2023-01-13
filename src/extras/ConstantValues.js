@@ -7,3 +7,5 @@ export const appBackgroundColor = "white";
 export const buttonBorderColor = "gray";
 export const buttonTextColor = "gray";
 export const textInputBorderColor = "lightgray";
+export const textInputBorderRadius = 10;
+export const buttonBorderRadius = 10;
