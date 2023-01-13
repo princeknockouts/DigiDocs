@@ -60,12 +60,27 @@ const TabNav = () => {
 
 const HomeScreens = () => {
 	return (
-		<HomeStack.Navigator>
-			<HomeStack.Screen name="Dashboard" component={Dashboard} />
-			<HomeStack.Screen name="Profile" component={Profile} />
+		<HomeStack.Navigator
+			screenOptions={{
+				headerShadowVisible: false,
+			}}
+		>
+			<HomeStack.Screen
+				name="Dashboard"
+				component={Dashboard}
+			/>
+			<HomeStack.Screen
+				name="Profile" 
+				component={Profile}
+			/>
 			<HomeStack.Screen
 				name="ViewApplications"
 				component={ViewApplications}
+			/>
+
+			<HomeStack.Screen
+				name="ViewDocuments"
+				component={ViewDocuments}
 			/>
 			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
 			<HomeStack.Screen
