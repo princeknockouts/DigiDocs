@@ -37,7 +37,6 @@ const DocumentScreens = () => {
 				name="ViewDocuments"
 				component={ViewDocuments}
 			/>
-			<DocumentStack.Screen name="TestScreen" component={TestScreen} />
 		</DocumentStack.Navigator>
 	);
 };
@@ -102,6 +101,7 @@ const TabNav = () => {
 					),
 				}}
 			/>
+			<Tab.Screen name="TestScreen" component={TestScreen} />
 		</Tab.Navigator>
 	);
 };
