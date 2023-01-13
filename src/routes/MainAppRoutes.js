@@ -40,10 +40,12 @@ const DocumentScreens = () => {
 
 const ApplicationScreens = () => {
 	return (
-		<ApplicationStack.Navigator screenOptions={{ headerShown: false }}>
+		<ApplicationStack.Navigator
+			screenOptions={{ headerShown: false, headerShadowVisible: "false" }}
+		>
 			<ApplicationStack.Screen
-				name="ApplyForDocuments"
-				component={ApplyForDocuments}
+				name="ViewApplications"
+				component={ViewApplications}
 			/>
 		</ApplicationStack.Navigator>
 	);
@@ -51,20 +53,7 @@ const ApplicationScreens = () => {
 
 const TabNav = () => {
 	return (
-		<Tab.Navigator>
-			<Tab.Screen
-				name="Profile"
-				component={ProfileScreens}
-				options={{
-					tabBarIcon: () => (
-						<Image
-							source={require("../assets/icons/profile-info.png")}
-							style={{ height: 25 }}
-							resizeMode="contain"
-						/>
-					),
-				}}
-			/>
+		<Tab.Navigator initialRouteName="Document">
 			<Tab.Screen
 				name="Document"
 				component={DocumentScreens}
@@ -85,6 +74,19 @@ const TabNav = () => {
 					tabBarIcon: () => (
 						<Image
 							source={require("../assets/icons/apply-document.png")}
+							style={{ height: 25 }}
+							resizeMode="contain"
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Profile"
+				component={ProfileScreens}
+				options={{
+					tabBarIcon: () => (
+						<Image
+							source={require("../assets/icons/profile-info.png")}
 							style={{ height: 25 }}
 							resizeMode="contain"
 						/>

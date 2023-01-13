@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet } from "react-native";
+import { appBackgroundColor } from "../extras/ConstantValues";
 
 class ViewDocuments extends Component {
     render() {
 
         const {
-            // code
+            scrollViewStyle,
         } = styles;
 
         return (
-            <ScrollView>
+            <ScrollView style={scrollViewStyle}>
                 {/* code */}
             </ScrollView>
         );
@@ -17,7 +18,9 @@ class ViewDocuments extends Component {
 }
 
 const styles = StyleSheet.create({
-    // code
+    scrollViewStyle: {
+        backgroundColor: appBackgroundColor,
+    }
 })
 
 export default ViewDocuments;

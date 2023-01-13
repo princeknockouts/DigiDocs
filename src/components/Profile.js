@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, View, Image, Text } from "react-native";
+import { appBackgroundColor } from "../extras/ConstantValues";
 
 class Profile extends Component {
     render() {
@@ -58,7 +59,7 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
     scrollViewStyle: {
-        backgroundColor: "white",
+        backgroundColor: appBackgroundColor,
     },
     profileImageViewStyle: {
         height: 180,
