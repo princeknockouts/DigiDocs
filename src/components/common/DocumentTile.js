@@ -6,7 +6,9 @@ class DocumentTile extends Component {
 		const { mainViewStyle } = styles;
 		return (
 			<View>
-				<Text>Document Tile</Text>
+				<Text>Document Name</Text>
+				<Text>Org Name</Text>
+				<Text>DOI</Text>
 			</View>
 		);
 	}
