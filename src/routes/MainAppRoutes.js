@@ -60,7 +60,6 @@ const TabNav = () => {
 
 const HomeScreens = () => {
 	return (
-<<<<<<< HEAD
 		<HomeStack.Navigator
 			screenOptions={{
 				headerShadowVisible: false,
@@ -74,23 +73,16 @@ const HomeScreens = () => {
 				name="Profile" 
 				component={Profile}
 			/>
-=======
-		<HomeStack.Navigator>
-			<HomeStack.Screen name="Dashboard" component={Dashboard} />
-			<HomeStack.Screen name="Profile" component={Profile} />
->>>>>>> 3cfe1573f803e2644b3168d4a20a17e7cc3ac830
 			<HomeStack.Screen
 				name="ViewApplications"
 				component={ViewApplications}
 			/>
-<<<<<<< HEAD
+
 			<HomeStack.Screen
 				name="ViewDocuments"
 				component={ViewDocuments}
 			/>
-=======
 			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
->>>>>>> 3cfe1573f803e2644b3168d4a20a17e7cc3ac830
 			<HomeStack.Screen
 				name="ApplyForDocuments"
 				component={ApplyForDocuments}
