@@ -55,7 +55,7 @@ const ApplicationScreens = () => {
 
 const TabNav = () => {
 	return (
-		<Tab.Navigator initialRouteName="Document">
+		<Tab.Navigator initialRouteName="Document" screenOptions={{headerTitleAlign: 'center'}}>
 			<Tab.Screen
 				name="Document"
 				component={DocumentScreens}
@@ -67,6 +67,7 @@ const TabNav = () => {
 							resizeMode="contain"
 						/>
 					),
+					headerTitle:"Documents"
 				}}
 			/>
 			<Tab.Screen
@@ -80,6 +81,7 @@ const TabNav = () => {
 							resizeMode="contain"
 						/>
 					),
+					headerTitle:"Applications"
 				}}
 			/>
 			<Tab.Screen
