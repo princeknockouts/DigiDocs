@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
 import ForgotPassword from "../components/ForgotPassword";
@@ -12,15 +13,65 @@ import ApplyForDocuments from "../components/ApplyForDocuments";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
+const ProfileStack = createNativeStackNavigator();
+const DocumentStack = createNativeStackNavigator();
+const ApplicationStack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const ProfileScreens = () => {
+	return (
+		<ProfileStack.Navigator screenOptions={{ headerShown: false }}>
+			<ProfileStack.Screen name="Profile" component={Profile} />
+		</ProfileStack.Navigator>
+	);
+};
+
+const DocumentScreens = () => {
+	return (
+		<DocumentStack.Navigator screenOptions={{ headerShown: false }}>
+			<DocumentStack.Screen
+				name="ViewDocuments"
+				component={ViewDocuments}
+			/>
+		</DocumentStack.Navigator>
+	);
+};
+
+const ApplicationScreens = () => {
+	return (
+		<ApplicationStack.Navigator screenOptions={{ headerShown: false }}>
+			<ApplicationStack.Screen
+				name="ApplyForDocuments"
+				component={ApplyForDocuments}
+			/>
+		</ApplicationStack.Navigator>
+	);
+};
+
+const TabNav = () => {
+	return (
+		<Tab.Navigator>
+			<Tab.Screen name="Profile" component={ProfileScreens} />
+			<Tab.Screen name="Document" component={DocumentScreens} />
+			<Tab.Screen name="Application" component={ApplicationScreens} />
+		</Tab.Navigator>
+	);
+};
 
 const HomeScreens = () => {
 	return (
 		<HomeStack.Navigator>
 			<HomeStack.Screen name="Dashboard" component={Dashboard} />
 			<HomeStack.Screen name="Profile" component={Profile} />
-			<HomeStack.Screen name="ViewApplications" component={ViewApplications} />
+			<HomeStack.Screen
+				name="ViewApplications"
+				component={ViewApplications}
+			/>
 			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
-			<HomeStack.Screen name="ApplyForDocuments" component={ApplyForDocuments} />
+			<HomeStack.Screen
+				name="ApplyForDocuments"
+				component={ApplyForDocuments}
+			/>
 		</HomeStack.Navigator>
 	);
 };
@@ -28,7 +79,10 @@ const HomeScreens = () => {
 function MainAppRoutes() {
 	return (
 		<NavigationContainer>
-			<RootStack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+			<RootStack.Navigator
+				initialRouteName="Splash"
+				screenOptions={{ headerShown: false }}
+			>
 				<RootStack.Screen
 					name="Splash"
 					component={Splash}
@@ -43,7 +97,11 @@ function MainAppRoutes() {
 					name="ForgotPassword"
 					component={ForgotPassword}
 				/>
-				<RootStack.Screen name="Home" component={HomeScreens} />
+				<RootStack.Screen
+					name="Home"
+					component={TabNav}
+					options={{ headerShown: false }}
+				/>
 			</RootStack.Navigator>
 		</NavigationContainer>
 	);

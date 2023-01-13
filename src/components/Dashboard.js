@@ -4,43 +4,39 @@ import { DashboardTile } from "./common";
 
 class Dashboard extends Component {
 	render() {
-
-		const {
-			rootViewStyle,
-			horizontalTileStyle,
-		} = styles;
+		const { rootViewStyle, horizontalTileStyle } = styles;
 
 		return (
 			<ScrollView style={rootViewStyle}>
 				<View style={horizontalTileStyle}>
 					<DashboardTile
 						tileHeading="Profile"
-						tileColor='blue'
+						tileColor="blue"
 						tileOnPress={() => {
-							this.props.navigation.navigate('Profile');
+							this.props.navigation.navigate("Profile");
 						}}
 					/>
 					<DashboardTile
 						tileHeading="View Documents"
-						tileColor='red'
+						tileColor="red"
 						tileOnPress={() => {
-							this.props.navigation.navigate('ViewDocuments');
+							this.props.navigation.navigate("ViewDocuments");
 						}}
 					/>
 				</View>
 				<View style={horizontalTileStyle}>
 					<DashboardTile
 						tileHeading="View Applications"
-						tileColor='pink'
+						tileColor="pink"
 						tileOnPress={() => {
-							this.props.navigation.navigate('ViewApplications');
+							this.props.navigation.navigate("ViewApplications");
 						}}
 					/>
 					<DashboardTile
 						tileHeading="Apply for Document"
-						tileColor='green'
+						tileColor="green"
 						tileOnPress={() => {
-							this.props.navigation.navigate('ApplyForDocuments');
+							this.props.navigation.navigate("ApplyForDocuments");
 						}}
 					/>
 				</View>
@@ -54,14 +50,10 @@ const styles = StyleSheet.create({
 		flexGrow: 1,
 	},
 	horizontalTileStyle: {
-		alignItems: 'center',
-		alignContent: 'space-between',
-		justifyContent: 'space-around',
-		flex: 1,
-		flexDirection: 'row',
-		marginTop: 20,
-	}
-})
-
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+});
 
 export default Dashboard;
