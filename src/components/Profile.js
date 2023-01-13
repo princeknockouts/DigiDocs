@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, View, Image, Text } from "react-native";
+import { ScrollView, StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { appBackgroundColor } from "../extras/ConstantValues";
 
 class Profile extends Component {
@@ -8,6 +8,9 @@ class Profile extends Component {
         const {
             scrollViewStyle,
             profileImageViewStyle,
+            profileImageStyle,
+            editButtonStyle,
+            iconImageStyle,
             detailsViewStyle,
             infoViewStyle,
             textStyle,
@@ -18,8 +21,16 @@ class Profile extends Component {
         return (
             <ScrollView style={scrollViewStyle}>
                 <View style={profileImageViewStyle}>
-                    <Image />
+                    <Image style={profileImageStyle} />
                 </View>
+                <TouchableOpacity
+                    style={editButtonStyle}
+                    onPress={()=>{
+                        this.props.navigation.navigate('EditProfile')
+                    }}
+                >
+                    <Image style={iconImageStyle} source={require("../assets/icons/edit.png")} resizeMode='contain' />
+                </TouchableOpacity>
                 <View style={detailsViewStyle}>
                 <View style={infoViewStyle}>
                         <Text style={textStyle}>Student ID :</Text>
@@ -69,6 +80,22 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         alignSelf: "center",
         marginTop: 30,
+    },
+    profileImageStyle: {
+        height: 180,
+        width: 180,
+        borderRadius: 90,
+    },
+    editButtonStyle: {
+        width: 30,
+        height: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: "flex-end",
+        marginRight: 20,
+    },
+    iconImageStyle: {
+        height: 30,
     },
     detailsViewStyle:{
         marginTop: 30,

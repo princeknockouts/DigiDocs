@@ -4,3 +4,6 @@ export const loginBackgroundColor = "white";
 export const loginButtonTextColor = "gray";
 export const loginHeadingTextColor = "gray";
 export const appBackgroundColor = "white";
+export const buttonBorderColor = "gray";
+export const buttonTextColor = "gray";
+export const textInputBorderColor = "lightgray";

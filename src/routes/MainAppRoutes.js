@@ -10,6 +10,7 @@ import Profile from "../components/Profile";
 import ViewApplications from "../components/ViewApplications";
 import ViewDocuments from "../components/ViewDocuments";
 import ApplyForDocuments from "../components/ApplyForDocuments";
+import EditProfile from "../components/EditProfile";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ const ProfileScreens = () => {
 	return (
 		<ProfileStack.Navigator screenOptions={{ headerShown: false }}>
 			<ProfileStack.Screen name="Profile" component={Profile} />
+			<ProfileStack.Screen name="EditProfile" component={EditProfile} />
 		</ProfileStack.Navigator>
 	);
 };
