@@ -50,8 +50,10 @@ const ApplicationScreens = () => {
 
 const TabNav = () => {
 	return (
-		<Tab.Navigator>
-			<Tab.Screen name="Profile" component={ProfileScreens} />
+		<Tab.Navigator screenOptions={{
+			headerTitleAlign: 'center'
+		}}>
+			<Tab.Screen name="Profile" component={ProfileScreens} options={{headerTitle: 'User Profile'}} />
 			<Tab.Screen name="Document" component={DocumentScreens} />
 			<Tab.Screen name="Application" component={ApplicationScreens} />
 		</Tab.Navigator>
