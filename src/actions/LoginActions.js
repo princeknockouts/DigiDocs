@@ -2,6 +2,7 @@ import {
 	LOGIN_USERNAME_VALUE_CHANGED,
 	LOGIN_PASSWORD_VALUE_CHANGED,
 	FORGOT_PASSWORD_USERNAME_VALUE_CHANGED,
+	FORGOT_PASSWORD_OTP_VALUE_CHANGED,
 } from './ActionTypes';
 
 export const loginUsernameValueChanged = username => {
@@ -27,6 +28,15 @@ export const forgotPasswordUsernameValueChanged = username => {
 		dispatch({
 			type: FORGOT_PASSWORD_USERNAME_VALUE_CHANGED,
 			payload: username
+		})
+	}
+}
+
+export const forgotPasswordOtpValueChanged = otp => {
+	return dispatch => {
+		dispatch({
+			type: FORGOT_PASSWORD_OTP_VALUE_CHANGED,
+			payload: otp
 		})
 	}
 }

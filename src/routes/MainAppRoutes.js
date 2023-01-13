@@ -5,10 +5,10 @@ import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
 import ForgotPassword from "../components/ForgotPassword";
 import Splash from "../components/Splash";
-import Profile from "../components/UserScreens/Profile";
-import ViewApplications from "../components/UserScreens/ViewApplications";
-import ViewDocuments from "../components/UserScreens/ViewDocuments";
-import ApplyForDocuments from "../components/UserScreens/ApplyForDocuments";
+import Profile from "../components/Profile";
+import ViewApplications from "../components/ViewApplications";
+import ViewDocuments from "../components/ViewDocuments";
+import ApplyForDocuments from "../components/ApplyForDocuments";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
