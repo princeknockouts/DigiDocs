@@ -12,6 +12,7 @@ import ViewApplications from "../components/ViewApplications";
 import ViewDocuments from "../components/ViewDocuments";
 import ApplyForDocuments from "../components/ApplyForDocuments";
 import EditProfile from "../components/EditProfile";
+import TestScreen from "../components/TestScreen";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -55,7 +56,10 @@ const ApplicationScreens = () => {
 
 const TabNav = () => {
 	return (
-		<Tab.Navigator initialRouteName="Document" screenOptions={{headerTitleAlign: 'center'}}>
+		<Tab.Navigator
+			initialRouteName="Document"
+			screenOptions={{ headerTitleAlign: "center" }}
+		>
 			<Tab.Screen
 				name="Document"
 				component={DocumentScreens}
@@ -67,7 +71,7 @@ const TabNav = () => {
 							resizeMode="contain"
 						/>
 					),
-					headerTitle:"Documents"
+					headerTitle: "Documents",
 				}}
 			/>
 			<Tab.Screen
@@ -81,7 +85,7 @@ const TabNav = () => {
 							resizeMode="contain"
 						/>
 					),
-					headerTitle:"Applications"
+					headerTitle: "Applications",
 				}}
 			/>
 			<Tab.Screen
@@ -97,6 +101,7 @@ const TabNav = () => {
 					),
 				}}
 			/>
+			<Tab.Screen name="TestScreen" component={TestScreen} />
 		</Tab.Navigator>
 	);
 };
