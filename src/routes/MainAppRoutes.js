@@ -1,4 +1,5 @@
 import React from "react";
+import { Image, StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -41,7 +42,9 @@ const DocumentScreens = () => {
 
 const ApplicationScreens = () => {
 	return (
-		<ApplicationStack.Navigator screenOptions={{ headerShown: false, headerShadowVisible: 'false' }}>
+		<ApplicationStack.Navigator
+			screenOptions={{ headerShown: false, headerShadowVisible: "false" }}
+		>
 			<ApplicationStack.Screen
 				name="ViewApplications"
 				component={ViewApplications}
@@ -52,13 +55,46 @@ const ApplicationScreens = () => {
 
 const TabNav = () => {
 	return (
-		<Tab.Navigator screenOptions={{
-			headerTitleAlign: 'center',
-			headerShadowVisible: false,
-		}}>
-			<Tab.Screen name="Profile" component={ProfileScreens} options={{headerTitle: 'User Profile'}} />
-			<Tab.Screen name="Documents" component={DocumentScreens} />
-			<Tab.Screen name="Applicationa" component={ApplicationScreens} />
+		<Tab.Navigator initialRouteName="Document">
+			<Tab.Screen
+				name="Document"
+				component={DocumentScreens}
+				options={{
+					tabBarIcon: () => (
+						<Image
+							source={require("../assets/icons/view-document.png")}
+							style={{ height: 25 }}
+							resizeMode="contain"
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Application"
+				component={ApplicationScreens}
+				options={{
+					tabBarIcon: () => (
+						<Image
+							source={require("../assets/icons/apply-document.png")}
+							style={{ height: 25 }}
+							resizeMode="contain"
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Profile"
+				component={ProfileScreens}
+				options={{
+					tabBarIcon: () => (
+						<Image
+							source={require("../assets/icons/profile-info.png")}
+							style={{ height: 25 }}
+							resizeMode="contain"
+						/>
+					),
+				}}
+			/>
 		</Tab.Navigator>
 	);
 };
@@ -70,23 +106,14 @@ const HomeScreens = () => {
 				headerShadowVisible: false,
 			}}
 		>
-			<HomeStack.Screen
-				name="Dashboard"
-				component={Dashboard}
-			/>
-			<HomeStack.Screen
-				name="Profile" 
-				component={Profile}
-			/>
+			<HomeStack.Screen name="Dashboard" component={Dashboard} />
+			<HomeStack.Screen name="Profile" component={Profile} />
 			<HomeStack.Screen
 				name="ViewApplications"
 				component={ViewApplications}
 			/>
 
-			<HomeStack.Screen
-				name="ViewDocuments"
-				component={ViewDocuments}
-			/>
+			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
 			<HomeStack.Screen name="ViewDocuments" component={ViewDocuments} />
 			<HomeStack.Screen
 				name="ApplyForDocuments"
