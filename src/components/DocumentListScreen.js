@@ -66,13 +66,14 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 	},
 	itemContainer: {
-		marginTop: 10,
-		backgroundColor: "#F5F5F5",
+		marginTop: 5,
+		backgroundColor: "#F5F1F5",
 		borderRadius: 10,
 		padding: 20,
 		marginBottom: 10,
 		flexDirection: "row",
 		alignItems: "center",
+		elevation: 1,
 	},
 	icon: {
 		width: 40,
@@ -86,10 +87,10 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: "bold",
 		marginBottom: 5,
-		color: "#000000",
+		// color: "#000000",
 	},
 	itemSubtitle: {
 		fontSize: 14,
-		color: "#666666",
+		// color: "#666666",
 	},
 });
