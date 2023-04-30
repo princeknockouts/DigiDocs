@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-	View,
+	ScrollView,
 	Text,
 	TextInput,
 	TouchableOpacity,
@@ -33,7 +33,7 @@ class ViewApplications extends Component {
 		];
 
 		return (
-			<View style={styles.container}>
+			<ScrollView style={styles.container}>
 				<Image
 					style={styles.imageStyle}
 					source={require("../assets/icons/apply-for-document.png")}
@@ -76,7 +76,7 @@ class ViewApplications extends Component {
 				>
 					<Text style={styles.buttonText}>Submit</Text>
 				</TouchableOpacity>
-			</View>
+			</ScrollView>
 		);
 	}
 }
