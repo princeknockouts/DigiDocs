@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import { appBackgroundColor } from "../extras/ConstantValues";
 import { UserCard, EducationInfo } from "./common";
 
@@ -10,6 +10,42 @@ class ViewDocuments extends Component {
 		return (
 			<ScrollView style={scrollViewStyle}>
 				<UserCard />
+				<View
+					style={{
+						flexDirection: "row",
+						alignItems: "center",
+						marginTop: 20,
+					}}
+				>
+					<View
+						style={{
+							flex: 1,
+							height: 1,
+							backgroundColor: "gray",
+							marginLeft: 5,
+						}}
+					/>
+					<View>
+						<Text
+							style={{
+								width: 160,
+								textAlign: "center",
+								letterSpacing: 3,
+								fontWeight: "bold",
+							}}
+						>
+							ORGANIZATIONS
+						</Text>
+					</View>
+					<View
+						style={{
+							flex: 1,
+							height: 1,
+							backgroundColor: "gray",
+							marginRight: 5,
+						}}
+					/>
+				</View>
 				<View style={educationInfoView}>
 					<EducationInfo
 						collegeName="Harvard University"
@@ -41,10 +77,10 @@ class ViewDocuments extends Component {
 
 const styles = StyleSheet.create({
 	scrollViewStyle: {
-		backgroundColor: appBackgroundColor,
+		backgroundColor: "white",
 	},
 	educationInfoView: {
-		marginTop: 20,
+		marginTop: 8,
 	},
 });
 
