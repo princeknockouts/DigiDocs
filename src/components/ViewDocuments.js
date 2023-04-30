@@ -12,18 +12,23 @@ class ViewDocuments extends Component {
 				<UserCard />
 				<View style={educationInfoView}>
 					<EducationInfo
-						collegeName="Example University"
-						yearOfPassing="2021"
-						educationType="Bachelor of Science"
+						collegeName="Harvard University"
+						fromYear="2014"
+						toYear="2018"
+						educationType="Bachelor of Science in Computer Science"
+						numDocuments={15}
 					/>
 					<EducationInfo
-						collegeName="Another Example College"
-						yearOfPassing="2018"
-						educationType="Master of Arts"
+						collegeName="Stanford University"
+						fromYear="2019"
+						educationType="Master of Science in Computer Science"
+						numDocuments={8}
 					/>
 					<EducationInfo
-						collegeName="A Third Example School"
-						educationType="Doctor of Philosophy"
+						collegeName="Massachusetts Institute of Technology"
+						fromYear="2023"
+						educationType="Doctor of Philosophy in Computer Science"
+						numDocuments={0}
 					/>
 				</View>
 			</ScrollView>
