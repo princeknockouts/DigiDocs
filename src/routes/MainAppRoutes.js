@@ -3,6 +3,8 @@ import { Image, StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+
 import Dashboard from "../components/Dashboard";
 import Login from "../components/Login";
 import ForgotPassword from "../components/ForgotPassword";
@@ -21,6 +23,7 @@ const ProfileStack = createNativeStackNavigator();
 const DocumentStack = createNativeStackNavigator();
 const ApplicationStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+// const Tab = createMaterialBottomTabNavigator();
 
 const ProfileScreens = () => {
 	return (
@@ -63,7 +66,12 @@ const TabNav = () => {
 	return (
 		<Tab.Navigator
 			initialRouteName="Document"
-			screenOptions={{ headerTitleAlign: "center" }}
+			barStyle={{ backgroundColor: "white" }}
+			screenOptions={{
+				headerTitleAlign: "center",
+				tabBarStyle: { height: 70 },
+				tabBarShowLabel: false,
+			}}
 		>
 			<Tab.Screen
 				name="Document"
@@ -106,7 +114,7 @@ const TabNav = () => {
 					),
 				}}
 			/>
-			<Tab.Screen name="TestScreen" component={TestScreen} />
+			{/* <Tab.Screen name="TestScreen" component={TestScreen} /> */}
 		</Tab.Navigator>
 	);
 };
