@@ -6,8 +6,18 @@ class TestScreen extends Component {
 	render() {
 		return (
 			<ScrollView>
-				<Text>TestScreen</Text>
-				<DocumentTile />
+				<View
+					style={{
+						flexDirection: "row",
+						flexWrap: "wrap",
+						justifyContent: "space-evenly",
+					}}
+				>
+					<DocumentTile />
+					<DocumentTile />
+					<DocumentTile />
+					<DocumentTile />
+				</View>
 			</ScrollView>
 		);
 	}
