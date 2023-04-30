@@ -13,6 +13,7 @@ import ViewDocuments from "../components/ViewDocuments";
 import ApplyForDocuments from "../components/ApplyForDocuments";
 import EditProfile from "../components/EditProfile";
 import TestScreen from "../components/TestScreen";
+import DocumentListScreen from "../components/DocumentListScreen";
 
 const RootStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -36,6 +37,10 @@ const DocumentScreens = () => {
 			<DocumentStack.Screen
 				name="ViewDocuments"
 				component={ViewDocuments}
+			/>
+			<DocumentStack.Screen
+				name="DocumentList"
+				component={DocumentListScreen}
 			/>
 		</DocumentStack.Navigator>
 	);

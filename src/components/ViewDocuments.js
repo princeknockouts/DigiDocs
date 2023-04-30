@@ -17,6 +17,9 @@ class ViewDocuments extends Component {
 						toYear="2018"
 						educationType="Bachelor of Science in Computer Science"
 						numDocuments={15}
+						onPress={() => {
+							this.props.navigation.navigate("DocumentList");
+						}}
 					/>
 					<EducationInfo
 						collegeName="Stanford University"

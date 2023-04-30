@@ -3,12 +3,18 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 class EducationInfo extends Component {
 	render() {
-		const { collegeName, fromYear, toYear, educationType, numDocuments } =
-			this.props;
+		const {
+			collegeName,
+			fromYear,
+			toYear,
+			educationType,
+			numDocuments,
+			onPress,
+		} = this.props;
 		const currentlyStudying = !toYear;
 
 		return (
-			<TouchableOpacity style={styles.container}>
+			<TouchableOpacity onPress={onPress} style={styles.container}>
 				<View style={styles.textContainer}>
 					<Text style={styles.collegeName}>{collegeName}</Text>
 					<Text style={styles.educationType}>{educationType}</Text>
