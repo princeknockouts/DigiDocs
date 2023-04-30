@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
 	},
 	profileImageContainer: {
 		borderWidth: 2,
-		borderColor: "#000",
+		borderColor: "lightgray",
 		borderRadius: 60,
 		overflow: "hidden",
 	},
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
 		alignSelf: "flex-start",
 	},
 	line: {
-		backgroundColor: "#000",
+		backgroundColor: "lightgray",
 		height: 1,
 		width: "100%",
 		marginTop: 8,
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
 	studentIdStyle: {
 		alignSelf: "center",
 		fontSize: 16,
-		// fontWeight: "bold",
+		fontWeight: "bold",
 		color: "#666",
 		marginTop: 13,
 	},
