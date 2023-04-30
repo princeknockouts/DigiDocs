@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, Text, StyleSheet, View } from "react-native";
-import { DashboardTile } from "./common";
+import { DashboardTile, UserCard } from "./common";
 
 class Dashboard extends Component {
 	render() {
