@@ -67,13 +67,14 @@ const styles = StyleSheet.create({
 	},
 	itemContainer: {
 		marginTop: 5,
-		backgroundColor: "#F5F1F5",
+		backgroundColor: "#F5F5F5",
 		borderRadius: 10,
 		padding: 20,
 		marginBottom: 10,
 		flexDirection: "row",
 		alignItems: "center",
 		elevation: 1,
+		borderColor: "gray",
 	},
 	icon: {
 		width: 40,
