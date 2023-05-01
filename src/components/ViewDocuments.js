@@ -18,11 +18,11 @@ import { connect } from "react-redux";
 
 const sampleData = [
 	{
-		collegeName: "Harvard University",
-		from: "2001",
-		to: "2004",
-		type: "Bachelor of Science in Computer Science",
-		no: "10",
+		collegeName: "KJSIT",
+		from: "2020",
+		to: "2023",
+		type: "B-Tech",
+		no: "2",
 	},
 ];
 
