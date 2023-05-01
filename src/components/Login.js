@@ -8,18 +8,18 @@ import {
 	ScrollView,
 	StyleSheet,
 } from "react-native";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import {
 	loginUsernameValueChanged,
 	loginPasswordValueChanged,
-} from '../actions';
+} from "../actions";
 import {
 	loginBackgroundColor,
 	loginButtonBorderColor,
 	loginButtonTextColor,
 	loginTextInputBorderColor,
 	loginHeadingTextColor,
-} from '../extras/ConstantValues';
+} from "../extras/ConstantValues";
 
 class Login extends Component {
 	render() {
@@ -38,11 +38,11 @@ class Login extends Component {
 					source={require("../assets/icons/login1.gif")}
 				/>
 				<Text style={loginTextStyle}>LOGIN</Text>
-				<TextInput 
-					style={textInputStyle} 
-					placeholder="E-Mail" 
+				<TextInput
+					style={textInputStyle}
+					placeholder="E-Mail"
 					onChangeText={(value) => {
-						loginUsernameValueChanged(value);
+						this.props.loginUsernameValueChanged(value);
 					}}
 					value={this.props.loginUsername}
 				/>
@@ -50,7 +50,7 @@ class Login extends Component {
 					style={textInputStyle}
 					placeholder="Password"
 					onChangeText={(value) => {
-						loginPasswordValueChanged(value);
+						this.props.loginPasswordValueChanged(value);
 					}}
 					value={this.props.loginPassword}
 				/>
@@ -64,8 +64,8 @@ class Login extends Component {
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={forgotButtonStyle}
-					onPress={()=> {
-						this.props.navigation.navigate('ForgotPassword')
+					onPress={() => {
+						this.props.navigation.navigate("ForgotPassword");
 					}}
 				>
 					<Text>Forgot Password?</Text>
@@ -121,15 +121,15 @@ const styles = StyleSheet.create({
 	},
 	loginButtonTextStyle: {
 		color: loginButtonTextColor,
-	}
+	},
 });
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
 		loginUsername: state.login.loginUsername,
 		loginPassword: state.login.loginPassword,
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps, {
 	loginUsernameValueChanged,

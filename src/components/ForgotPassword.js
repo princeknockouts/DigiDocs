@@ -42,7 +42,9 @@ class ForgotPassword extends Component {
 						placeholder="Username"
 						style={textInputStyle}
 						onChangeText={(value) => {
-							forgotPasswordUsernameValueChanged(value);
+							this.props.forgotPasswordUsernameValueChanged(
+								value
+							);
 						}}
 						value={this.props.forgotPasswordUsername}
 					/>

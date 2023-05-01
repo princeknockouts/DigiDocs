@@ -9,15 +9,22 @@ import {
 } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
 
+import { connect } from "react-redux";
+import {
+	purposeOfApplication,
+	organizationNameValueChanged,
+	typeOfDocumentValueChanged,
+} from "../actions";
+
 class ViewApplications extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			documentType: "",
-			organization: "",
-			purpose: "",
-		};
-	}
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		documentType: "",
+	// 		organization: "",
+	// 		purpose: "",
+	// 	};
+	// }
 
 	handleSubmit = () => {
 		// Handle form submission here
@@ -43,7 +50,7 @@ class ViewApplications extends Component {
 					options={documentTypeOptions}
 					defaultValue="Select Document Type"
 					onSelect={(index, value) =>
-						this.setState({ documentType: value })
+						this.props.typeOfDocumentValueChanged(value)
 					}
 					style={styles.dropdown}
 					textStyle={styles.dropdownText}
@@ -55,7 +62,7 @@ class ViewApplications extends Component {
 					options={organizationOptions}
 					defaultValue="Select Organization"
 					onSelect={(index, value) =>
-						this.setState({ organization: value })
+						this.props.organizationNameValueChanged(value)
 					}
 					style={styles.dropdown}
 					textStyle={styles.dropdownText}
@@ -66,8 +73,10 @@ class ViewApplications extends Component {
 				<TextInput
 					style={styles.input}
 					placeholder="Enter Purpose"
-					onChangeText={(text) => this.setState({ purpose: text })}
-					value={this.state.purpose}
+					onChangeText={(text) =>
+						this.props.purposeOfApplication(text)
+					}
+					value={this.props.purpose}
 				/>
 
 				<TouchableOpacity
@@ -137,4 +146,23 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ViewApplications;
+// export default ViewApplications;
+
+const mapStateToProps = (state) => {
+	return {
+		purpose: state.application.loginUsername,
+		type: state.application.type,
+		organizationName: state.application.organizationName,
+	};
+};
+
+export default connect(mapStateToProps, {
+	purposeOfApplication,
+	organizationNameValueChanged,
+	typeOfDocumentValueChanged,
+})(ViewApplications);
+
+// export default connect(mapStateToProps, {
+// 	purposeOfApplication,
+// 	loginPasswordValueChanged,
+// })(Login);
