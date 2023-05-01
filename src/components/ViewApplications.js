@@ -14,6 +14,7 @@ import {
 	purposeOfApplication,
 	organizationNameValueChanged,
 	typeOfDocumentValueChanged,
+	setApplicationRequestAPICall,
 } from "../actions";
 
 class ViewApplications extends Component {
@@ -81,7 +82,13 @@ class ViewApplications extends Component {
 
 				<TouchableOpacity
 					style={styles.button}
-					onPress={this.handleSubmit}
+					onPress={() => {
+						this.props.setApplicationRequestAPICall(
+							this.props.type,
+							this.props.organizationName,
+							this.props.purpose
+						);
+					}}
 				>
 					<Text style={styles.buttonText}>Submit</Text>
 				</TouchableOpacity>
@@ -150,7 +157,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
 	return {
-		purpose: state.application.loginUsername,
+		purpose: state.application.purpose,
 		type: state.application.type,
 		organizationName: state.application.organizationName,
 	};
@@ -160,6 +167,7 @@ export default connect(mapStateToProps, {
 	purposeOfApplication,
 	organizationNameValueChanged,
 	typeOfDocumentValueChanged,
+	setApplicationRequestAPICall,
 })(ViewApplications);
 
 // export default connect(mapStateToProps, {
