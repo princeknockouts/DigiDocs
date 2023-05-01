@@ -41,7 +41,7 @@ class DocumentListScreen extends Component {
 					<Text style={styles.itemTitle}>{item.document_name}</Text>
 					<Text
 						style={styles.itemSubtitle}
-					>{`Issued by ${item.issued_at} on ${item.date}`}</Text>
+					>{`Issued by ${item.issued_at} on 2023`}</Text>
 				</View>
 			</View>
 		);
