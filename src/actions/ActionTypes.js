@@ -22,3 +22,5 @@ export const ORGANIZATION_NAME_VALUE_CHANGED =
 	"organization_name_value_changed";
 export const PURPOSE_OF_APPLICATION = "purpose_of_application";
 export const SET_APPLICATION_DATA_API_CALL = "set_application_data_api_call";
+
+export const SET_PROFILE_DATA = "set_profile_data";

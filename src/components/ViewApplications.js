@@ -84,6 +84,7 @@ class ViewApplications extends Component {
 					style={styles.button}
 					onPress={() => {
 						this.props.setApplicationRequestAPICall(
+							1,
 							this.props.type,
 							this.props.organizationName,
 							this.props.purpose

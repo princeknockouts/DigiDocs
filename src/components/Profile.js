@@ -8,7 +8,13 @@ import {
 	ScrollView,
 } from "react-native";
 
+import { getProfileDataAPICall } from "../actions";
+import { connect } from "react-redux";
+
 class Profile extends Component {
+	componentDidMount() {
+		this.props.getProfileDataAPICall(1);
+	}
 	render() {
 		return (
 			<ScrollView style={{ backgroundColor: "white" }}>
@@ -158,4 +164,13 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Profile;
+const mapStateToProps = (state) => {
+	return {
+		// loginUsername: state.login.loginUsername,
+		// loginPassword: state.login.loginPassword,
+	};
+};
+
+export default connect(mapStateToProps, {
+	getProfileDataAPICall,
+})(Profile);

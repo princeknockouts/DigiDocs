@@ -10,7 +10,6 @@ import axios from "axios";
 
 export const purposeOfApplication = (purpose) => {
 	return (dispatch) => {
-		console.log(purpose);
 		dispatch({
 			type: PURPOSE_OF_APPLICATION,
 			payload: purpose,
@@ -36,38 +35,44 @@ export const organizationNameValueChanged = (value) => {
 	};
 };
 
-export const setApplicationRequestAPICall = (type, organization, purpose) => {
+export const setApplicationRequestAPICall = (
+	user_id,
+	type,
+	organization,
+	purpose
+) => {
 	return (dispatch) => {
 		var data = {
+			user_id: user_id,
 			type: type,
 			organization: organization,
 			purpose: purpose,
 		};
 
-		console.log(data);
+		// console.log(data);
 
-		// axios({
-		// 	method: "POST",
-		// 	url: SET_APPLICATION_DATA,
-		// 	data: data,
-		// })
-		// 	.then((response) => {
-		// 		// console.log(response.data);
-		// 		if (response.data.success) {
-		// 			// dispatch({
-		// 			// 	type: ,
-		// 			// 	payload: response.data.profile_data_array,
-		// 			// });
-		// 			console.log(response.data);
-		// 		} else {
-		// 			console.log("failed");
-		// 		}
-		// 	})
-		// 	.catch(
-		// 		// catch error
-		// 		(error) => {
-		// 			console.log(error);
-		// 		}
-		// 	);
+		axios({
+			method: "POST",
+			url: SET_APPLICATION_DATA,
+			data: data,
+		})
+			.then((response) => {
+				console.log(response.data);
+				if (response.data.success) {
+					// dispatch({
+					// 	type: ,
+					// 	payload: response.data.profile_data_array,
+					// });
+					console.log(response.data);
+				} else {
+					// console.log("failed");
+				}
+			})
+			.catch(
+				// catch error
+				(error) => {
+					console.log(error);
+				}
+			);
 	};
 };
