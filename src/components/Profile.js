@@ -8,13 +8,14 @@ import {
 	ScrollView,
 } from "react-native";
 
-import { getProfileDataAPICall } from "../actions";
+import { getProfileDataAPICall, setProfileData } from "../actions";
 import { connect } from "react-redux";
 
 class Profile extends Component {
 	componentDidMount() {
 		this.props.getProfileDataAPICall(1);
 	}
+
 	render() {
 		return (
 			<ScrollView style={{ backgroundColor: "white" }}>
@@ -32,26 +33,36 @@ class Profile extends Component {
 							</Text> */}
 							<View style={styles.aadharNumberContainer}>
 								<Text style={styles.aadharNumber}>
-									1234 5678 9012
+									{this.props.profile_data.ecard}
 								</Text>
 							</View>
 							<View style={styles.line} />
 							<Text style={styles.label}>Name:</Text>
-							<Text style={styles.value}>John Doe</Text>
+							<Text style={styles.value}>
+								{this.props.profile_data.first_name +
+									" " +
+									this.props.profile_data.last_name}
+							</Text>
 							<View style={styles.line} />
 							<Text style={styles.label}>Gender:</Text>
-							<Text style={styles.value}>Male</Text>
+							<Text style={styles.value}>
+								{this.props.profile_data.Gender}
+							</Text>
 							<View style={styles.line} />
 							<Text style={styles.label}>Date of Birth:</Text>
-							<Text style={styles.value}>01-01-2000</Text>
+							<Text style={styles.value}>
+								{this.props.profile_data.dob}
+							</Text>
 							<View style={styles.line} />
 							<Text style={styles.label}>Address:</Text>
 							<Text style={styles.value}>
-								123 Main Street, Anytown, USA
+								{this.props.profile_data.address}
 							</Text>
 							<View style={styles.line} />
 							<Text style={styles.label}>Mobile Number:</Text>
-							<Text style={styles.value}>+1 234-567-8901</Text>
+							<Text style={styles.value}>
+								{this.props.profile_data.contact}
+							</Text>
 
 							{/* <TouchableOpacity style={styles.editButton}>
 								<Text style={styles.editButtonText}>Edit</Text>
@@ -168,9 +179,11 @@ const mapStateToProps = (state) => {
 	return {
 		// loginUsername: state.login.loginUsername,
 		// loginPassword: state.login.loginPassword,
+		profile_data: state.profile.profile_data,
 	};
 };
 
 export default connect(mapStateToProps, {
 	getProfileDataAPICall,
+	setProfileData,
 })(Profile);

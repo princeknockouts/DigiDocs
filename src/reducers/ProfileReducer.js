@@ -1,4 +1,5 @@
 import {
+	GET_DOCUMENT_DETAILS,
 	PROFILE_CONTACT_VALUE_CHANGED,
 	PROFILE_EMAIL_VALUE_CHANGED,
 	PROFILE_FIRST_NAME_VALUE_CHANGED,
@@ -14,6 +15,7 @@ var INITIAL_STATE = {
 	contact: 0,
 	email_id: "",
 	profile_data: [],
+	document_data: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -30,6 +32,8 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, email_id: action.payload };
 		case SET_PROFILE_DATA:
 			return { ...state, profile_data: action.payload };
+		case GET_DOCUMENT_DETAILS:
+			return { ...state, document_data: action.payload };
 		default:
 			return state;
 	}

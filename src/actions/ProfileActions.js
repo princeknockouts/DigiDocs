@@ -5,10 +5,15 @@ import {
 	PROFILE_GENDER_VALUE_CHANGED,
 	PROFILE_LAST_NAME_VALUE_CHANGED,
 	SET_PROFILE_DATA,
+	GET_DOCUMENT_DETAILS,
 } from "./ActionTypes";
 
 import axios from "axios";
-import { FETCH_PROFILE_DATA } from "../extras/API";
+import {
+	FETCH_PROFILE_DATA,
+	GET_DOCUMENTS,
+	GET_STUDENT_ORGANIZATION_MAPPING,
+} from "../extras/API";
 
 export const profileFirstNameValueChanged = (fname) => {
 	dispatch({
@@ -45,23 +50,101 @@ export const profileEmailValueChanged = (email) => {
 	});
 };
 
+export const getDoucmentDetails = (doc_arr) => {
+	dispatch({
+		type: GET_DOCUMENT_DETAILS,
+		payload: doc_arr,
+	});
+};
+
+export const setProfileData = (data) => {
+	dispatch({
+		type: SET_PROFILE_DATA,
+		payload: data,
+	});
+};
+
 export const getProfileDataAPICall = (user_id) => {
 	return (dispatch) => {
 		var data = {
 			user_id: user_id,
 		};
 		// console.log(user_id);
+
 		axios({
 			method: "POST",
 			url: FETCH_PROFILE_DATA,
 			data: data,
 		})
 			.then((response) => {
+				// console.log(response.data);
 				if (response.data.success) {
-					console.log(response.data);
+					// console.log(response.data);
 					dispatch({
 						type: SET_PROFILE_DATA,
-						payload: response.data.profile_data_array,
+						payload: response.data.profile_data,
+					});
+				} else {
+					console.log("failed");
+				}
+			})
+			.catch(
+				// catch error
+				(error) => {
+					console.log(error);
+				}
+			);
+	};
+};
+
+export const getStudentOrganizationMapping = (user_id) => {
+	return (dispatch) => {
+		var data = {
+			user_id: user_id,
+		};
+		axios({
+			method: "POST",
+			url: GET_STUDENT_ORGANIZATION_MAPPING,
+			data: data,
+		})
+			.then((response) => {
+				if (response.data.success) {
+					// console.log(response.data);
+					// dispatch({
+					// 	type: SET_PROFILE_DATA,
+					// 	payload: response.data.profile_data,
+					// });
+				} else {
+					console.log("failed");
+				}
+			})
+			.catch(
+				// catch error
+				(error) => {
+					console.log(error);
+				}
+			);
+	};
+};
+
+export const getDocuments = (user_id, organzation_id) => {
+	return (dispatch) => {
+		var data = {
+			user_id: user_id,
+			organzation_id: organzation_id,
+		};
+
+		axios({
+			method: "POST",
+			url: GET_DOCUMENTS,
+			data: data,
+		})
+			.then((response) => {
+				if (response.data.success) {
+					// console.log(response.data.document_details);
+					dispatch({
+						type: GET_DOCUMENT_DETAILS,
+						payload: response.data.document_details,
 					});
 				} else {
 					console.log("failed");

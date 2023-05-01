@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { connect } from "react-redux";
+
+import { getDocuments } from "../actions";
 
 const sampleData = [
 	{
@@ -22,7 +25,11 @@ const sampleData = [
 	},
 ];
 
-export default class DocumentListScreen extends Component {
+class DocumentListScreen extends Component {
+	componentDidMount() {
+		this.props.getDocuments(1, 1);
+		console.log(this.props.document_data);
+	}
 	renderItem = ({ item }) => {
 		return (
 			<View style={styles.itemContainer}>
@@ -31,10 +38,10 @@ export default class DocumentListScreen extends Component {
 					style={styles.icon}
 				/>
 				<View style={styles.itemTextContainer}>
-					<Text style={styles.itemTitle}>{item.title}</Text>
+					<Text style={styles.itemTitle}>{item.document_name}</Text>
 					<Text
 						style={styles.itemSubtitle}
-					>{`Issued by ${item.issuedBy} on ${item.date}`}</Text>
+					>{`Issued by ${item.issued_at} on ${item.date}`}</Text>
 				</View>
 			</View>
 		);
@@ -44,7 +51,7 @@ export default class DocumentListScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<FlatList
-					data={sampleData}
+					data={this.props.document_data}
 					keyExtractor={(item) => item.id}
 					renderItem={this.renderItem}
 					style={styles.list}
@@ -95,3 +102,14 @@ const styles = StyleSheet.create({
 		// color: "#666666",
 	},
 });
+
+const mapStateToProps = (state) => {
+	return {
+		document_data: state.profile.document_data,
+		profile_data: state.profile.profile_data,
+	};
+};
+
+export default connect(mapStateToProps, {
+	getDocuments,
+})(DocumentListScreen);

@@ -12,6 +12,8 @@ class UserCard extends Component {
 			photoUrl: "require('../../assets/icons/john-doe.jpeg')",
 		};
 
+		const { name, id, organization, phoneNumber } = this.props;
+
 		return (
 			<View style={styles.container}>
 				<Image
@@ -19,12 +21,10 @@ class UserCard extends Component {
 					source={require("../../assets/icons/john-doe.jpeg")}
 				/>
 				<View style={styles.details}>
-					<Text style={styles.name}>{user.name}</Text>
-					<Text style={styles.id}>ID: {user.id}</Text>
-					<Text style={styles.organization}>{user.organization}</Text>
-					<Text style={styles.phoneNumber}>
-						Phone: {user.phoneNumber}
-					</Text>
+					<Text style={styles.name}>{name}</Text>
+					<Text style={styles.id}>ID: {id}</Text>
+					<Text style={styles.organization}>{organization}</Text>
+					<Text style={styles.phoneNumber}>Phone: {phoneNumber}</Text>
 				</View>
 			</View>
 		);

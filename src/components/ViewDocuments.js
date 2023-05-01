@@ -1,15 +1,70 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import {
+	ScrollView,
+	StyleSheet,
+	View,
+	Text,
+	TouchableOpacity,
+	FlatList,
+} from "react-native";
 import { appBackgroundColor } from "../extras/ConstantValues";
 import { UserCard, EducationInfo } from "./common";
+import {
+	getProfileDataAPICall,
+	setProfileData,
+	getStudentOrganizationMapping,
+} from "../actions";
+import { connect } from "react-redux";
+
+const sampleData = [
+	{
+		collegeName: "Harvard University",
+		from: "2001",
+		to: "2004",
+		type: "Bachelor of Science in Computer Science",
+		no: "10",
+	},
+];
 
 class ViewDocuments extends Component {
+	componentDidMount() {
+		this.props.getProfileDataAPICall(1);
+		this.props.getStudentOrganizationMapping(1);
+	}
+
+	renderItem = ({ item }) => {
+		return (
+			<EducationInfo
+				collegeName={item.collegeName}
+				fromYear={item.from}
+				toYear={item.to}
+				educationType={item.type}
+				numDocuments={item.no}
+				onPress={() => {
+					this.props.navigation.navigate("DocumentList");
+				}}
+			/>
+		);
+	};
 	render() {
 		const { scrollViewStyle, educationInfoView } = styles;
 
 		return (
 			<ScrollView style={scrollViewStyle}>
-				<UserCard />
+				<TouchableOpacity
+					onPress={() => console.log(this.props.profile_data)}
+				>
+					<UserCard
+						name={
+							this.props.profile_data.first_name +
+							" " +
+							this.props.profile_data.last_name
+						}
+						id={this.props.profile_data.ecard}
+						organization="KJSIT"
+						phoneNumber={this.props.profile_data.contact}
+					/>
+				</TouchableOpacity>
 				<View
 					style={{
 						flexDirection: "row",
@@ -47,7 +102,7 @@ class ViewDocuments extends Component {
 					/>
 				</View>
 				<View style={educationInfoView}>
-					<EducationInfo
+					{/* <EducationInfo
 						collegeName="Harvard University"
 						fromYear="2014"
 						toYear="2018"
@@ -56,18 +111,11 @@ class ViewDocuments extends Component {
 						onPress={() => {
 							this.props.navigation.navigate("DocumentList");
 						}}
-					/>
-					<EducationInfo
-						collegeName="Stanford University"
-						fromYear="2019"
-						educationType="Master of Science in Computer Science"
-						numDocuments={8}
-					/>
-					<EducationInfo
-						collegeName="Massachusetts Institute of Technology"
-						fromYear="2023"
-						educationType="Doctor of Philosophy in Computer Science"
-						numDocuments={0}
+					/> */}
+					<FlatList
+						renderItem={this.renderItem}
+						data={sampleData}
+						keyExtractor={(item) => item.id}
 					/>
 				</View>
 			</ScrollView>
@@ -84,4 +132,16 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ViewDocuments;
+const mapStateToProps = (state) => {
+	return {
+		// loginUsername: state.login.loginUsername,
+		// loginPassword: state.login.loginPassword,
+		profile_data: state.profile.profile_data,
+	};
+};
+
+export default connect(mapStateToProps, {
+	getProfileDataAPICall,
+	setProfileData,
+	getStudentOrganizationMapping,
+})(ViewDocuments);
