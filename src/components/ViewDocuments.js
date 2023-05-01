@@ -51,20 +51,17 @@ class ViewDocuments extends Component {
 
 		return (
 			<ScrollView style={scrollViewStyle}>
-				<TouchableOpacity
-					onPress={() => console.log(this.props.profile_data)}
-				>
-					<UserCard
-						name={
-							this.props.profile_data.first_name +
-							" " +
-							this.props.profile_data.last_name
-						}
-						id={this.props.profile_data.ecard}
-						organization="KJSIT"
-						phoneNumber={this.props.profile_data.contact}
-					/>
-				</TouchableOpacity>
+				<UserCard
+					name={
+						this.props.profile_data.first_name +
+						" " +
+						this.props.profile_data.last_name
+					}
+					id={this.props.profile_data.ecard}
+					organization="KJSIT"
+					phoneNumber={this.props.profile_data.contact}
+				/>
+
 				<View
 					style={{
 						flexDirection: "row",
